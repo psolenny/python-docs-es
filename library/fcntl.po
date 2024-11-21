@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-25 19:47+0200\n"
-"PO-Revision-Date: 2023-05-08 13:38-0400\n"
+"POT-Creation-Date: 2023-10-12 19:43+0200\n"
+"PO-Revision-Date: 2024-03-05 21:56-0500\n"
 "Last-Translator: Francisco Mora <fr.morac@duocuc.cl>\n"
 "Language-Team: python-doc-es\n"
 "Language: es_ES\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.10.3\n"
-"X-Generator: Poedit 3.2.2\n"
+"Generated-By: Babel 2.13.0\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: ../Doc/library/fcntl.rst:2
 msgid ":mod:`fcntl` --- The ``fcntl`` and ``ioctl`` system calls"
@@ -38,12 +38,11 @@ msgstr ""
 "`ioctl`. Para una completa descripción de estas llamadas, ver las páginas "
 "del manual de Unix :manpage:`fcntl(2)` y :manpage:`ioctl(2)`."
 
-# Dejo fuzzy por que no pasa el pipeline test. Otros archivos tienen esta misma linea como fuzzy.
-#, fuzzy
+#: ../Doc/includes/wasm-notavail.rst:3
 msgid ":ref:`Availability <availability>`: not Emscripten, not WASI."
 msgstr ":ref:`Disponibilidad <availability>`: no Emscripten, no WASI."
 
-#: ../Doc/library/cpython/Doc/includes/wasm-notavail.rst:5
+#: ../Doc/includes/wasm-notavail.rst:5
 msgid ""
 "This module does not work or is not available on WebAssembly platforms "
 "``wasm32-emscripten`` and ``wasm32-wasi``. See :ref:`wasm-availability` for "
@@ -64,7 +63,7 @@ msgstr ""
 "Todas las funciones de este módulo toman un descriptor de fichero *fd* como "
 "su primer argumento.  Puede ser un descriptor de fichero entero, como el "
 "retornado por ``sys.stdin.fileno()``, o un objeto :class:`io.IOBase`, como "
-"``sys.stdin``, que proporciona un :meth:`~io.IOBase.fileno` que retornan un "
+"``sys.stdin``, que proporciona un :meth:`~io.IOBase.fileno` que retorna un "
 "descriptor de fichero original."
 
 #: ../Doc/library/fcntl.rst:29
@@ -115,14 +114,27 @@ msgid ""
 "the latter setting ``FD_CLOEXEC`` flag in addition."
 msgstr ""
 "En FreeBSD, el módulo fcntl expone las constantes ``F_DUP2FD`` y "
-"``F_DUP2FD_CLOEXEC``, que permiten duplicar un descriptor de archivo, este "
-"último configurando además el indicador ``FD_CLOEXEC``."
+"``F_DUP2FD_CLOEXEC``, que permiten duplicar un descriptor de fichero, esta "
+"última fijando además el indicador ``FD_CLOEXEC``."
 
 #: ../Doc/library/fcntl.rst:55
+msgid ""
+"On Linux >= 4.5, the :mod:`fcntl` module exposes the ``FICLONE`` and "
+"``FICLONERANGE`` constants, which allow to share some data of one file with "
+"another file by reflinking on some filesystems (e.g., btrfs, OCFS2, and "
+"XFS). This behavior is commonly referred to as \"copy-on-write\"."
+msgstr ""
+"En Linux >= 4.5, el módulo :mod:`fcntl` expone las constantes ``FICLONE`` y "
+"``FICLONERANGE``, que permiten compartir algunos datos de un fichero con "
+"otro fichero mediante el *reflinking* en algunos sistemas de ficheros (por "
+"ejemplo, btrfs, OCFS2 y XFS). Este comportamiento se conoce comúnmente como "
+"\"copy-on-write\"."
+
+#: ../Doc/library/fcntl.rst:61
 msgid "The module defines the following functions:"
 msgstr "El módulo define las siguientes funciones:"
 
-#: ../Doc/library/fcntl.rst:60
+#: ../Doc/library/fcntl.rst:66
 msgid ""
 "Perform the operation *cmd* on file descriptor *fd* (file objects providing "
 "a :meth:`~io.IOBase.fileno` method are accepted as well).  The values used "
@@ -140,17 +152,17 @@ msgid ""
 "the operating system is larger than 1024 bytes, this is most likely to "
 "result in a segmentation violation or a more subtle data corruption."
 msgstr ""
-"Realice la operación *cmd* en el descriptor de fichero *fd* (los objetos de "
-"fichero que proporcionan un método :meth:`~io.IOBase.fileno` también son "
-"aceptados). Los valores utilizados para *cmd* dependen del sistema operativo "
-"y están disponibles como constantes en el módulo :mod:`fcntl`, utilizando "
-"los mismos nombres que se utilizan en los archivos de cabecera C relevantes. "
-"El argumento *arg* puede ser un valor entero o un objeto :class:`bytes`. Con "
-"un valor entero, el valor retorno de esta función es el valor entero "
+"Realiza la operación *cmd* en el descriptor de fichero *fd* (también se "
+"aceptan objetos de fichero que proporcionen un método :meth:`~io.IOBase."
+"fileno`). Los valores utilizados para *cmd* dependen del sistema operativo y "
+"están disponibles como constantes en el módulo :mod:`fcntl`, utilizando los "
+"mismos nombres que se utilizan en los archivos de cabecera C relevantes. El "
+"argumento *arg* puede ser un valor entero o un objeto :class:`bytes`. Con un "
+"valor entero, el valor retornado en esta función es el valor entero "
 "retornado por la llamada en C :c:func:`fcntl` . Cuando el argumento son "
 "bytes representa una estructura binaria, e.g. creada por :func:`struct."
 "pack`. Los datos binarios se copian en un búfer cuya dirección se pasa a la "
-"llamada en C ::c:func:`fcntl`. El valor de retorno después de una llamada "
+"llamada en C ::c:func:`fcntl`. El valor retornado después de una llamada "
 "correcta es el contenido del búfer, convertido en un objeto :class:`bytes`. "
 "La longitud del objeto retornado será la misma que la longitud del argumento "
 "*arg*. Esta longitud está limitada a 1024 bytes. Si la información retornada "
@@ -158,19 +170,19 @@ msgstr ""
 "probable es que se produzca una violación de segmento o a una corrupción de "
 "datos más sutil."
 
-#: ../Doc/library/fcntl.rst:77
+#: ../Doc/library/fcntl.rst:83
 msgid "If the :c:func:`fcntl` fails, an :exc:`OSError` is raised."
 msgstr "Si se produce un error en :c:func:`fcntl`, se lanza un :exc:`OSError`."
 
-#: ../Doc/library/fcntl.rst:88
+#: ../Doc/library/fcntl.rst:94
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``fcntl.fcntl`` with arguments "
 "``fd``, ``cmd``, ``arg``."
 msgstr ""
-"Lanza un :ref:`auditing event <auditing>` ``fcntl.fcntl`` con argumentos "
-"``fd``, ``cmd``, ``arg``."
+"Lanza un :ref:`evento de auditoria <auditing>` ``fcntl.fcntl`` con "
+"argumentos ``fd``, ``cmd``, ``arg``."
 
-#: ../Doc/library/fcntl.rst:84
+#: ../Doc/library/fcntl.rst:90
 msgid ""
 "This function is identical to the :func:`~fcntl.fcntl` function, except that "
 "the argument handling is even more complicated."
@@ -178,7 +190,7 @@ msgstr ""
 "Esta función es idéntica a la función :func:`~fcntl.fcntl`, excepto por el "
 "manejo de los argumentos que es aún más complicado."
 
-#: ../Doc/library/fcntl.rst:87
+#: ../Doc/library/fcntl.rst:93
 msgid ""
 "The *request* parameter is limited to values that can fit in 32-bits. "
 "Additional constants of interest for use as the *request* argument can be "
@@ -188,9 +200,9 @@ msgstr ""
 "El parámetro *request* se encuentra limitado a valores que encajen en 32-"
 "bits. Se pueden encontrar constantes adicionales de interés para usar como "
 "argumento *request* en el módulo :mod:`termios`, con los mismos nombres que "
-"se usan en los archivos de cabecera C relevantes."
+"se usan en los archivos de cabecera C correspondientes."
 
-#: ../Doc/library/fcntl.rst:92
+#: ../Doc/library/fcntl.rst:98
 msgid ""
 "The parameter *arg* can be one of an integer, an object supporting the read-"
 "only buffer interface (like :class:`bytes`) or an object supporting the read-"
@@ -200,15 +212,15 @@ msgstr ""
 "búfer de solo lectura (como :class:`bytes`) o un objeto que admita una "
 "interfaz de búfer de lectura-escritura (como: clase :class:`bytearray`)."
 
-#: ../Doc/library/fcntl.rst:96
+#: ../Doc/library/fcntl.rst:102
 msgid ""
 "In all but the last case, behaviour is as for the :func:`~fcntl.fcntl` "
 "function."
 msgstr ""
-"En todos los casos excepto en el último, el comportamiento es el de la "
-"función :func:`~fcntl.fcntl`."
+"En todos los casos, excepto en el último, el comportamiento es el mismo que "
+"para la función :func:`~fcntl.fcntl`."
 
-#: ../Doc/library/fcntl.rst:99
+#: ../Doc/library/fcntl.rst:105
 msgid ""
 "If a mutable buffer is passed, then the behaviour is determined by the value "
 "of the *mutate_flag* parameter."
@@ -216,7 +228,7 @@ msgstr ""
 "Si se pasa un búfer mutable, el comportamiento estará determinado por el "
 "valor del parámetro *mutate_flag*."
 
-#: ../Doc/library/fcntl.rst:102
+#: ../Doc/library/fcntl.rst:108
 msgid ""
 "If it is false, the buffer's mutability is ignored and behaviour is as for a "
 "read-only buffer, except that the 1024 byte limit mentioned above is avoided "
@@ -229,7 +241,7 @@ msgstr ""
 "menos tan largo como el sistema operativo quiera colocar allí, las cosas "
 "deberían funcionar."
 
-#: ../Doc/library/fcntl.rst:107
+#: ../Doc/library/fcntl.rst:113
 msgid ""
 "If *mutate_flag* is true (the default), then the buffer is (in effect) "
 "passed to the underlying :func:`ioctl` system call, the latter's return code "
@@ -241,30 +253,30 @@ msgid ""
 msgstr ""
 "Si *mutate_flag* es verdadero (valor predeterminado), entonces el búfer se "
 "pasa (en efecto) a la llamada al sistema subyacente :func:`ioctl`, el código "
-"de retorno de éste último se retorna al Python que llama, y el nuevo "
-"contenido del búfer refleja la acción de :func:`ioctl`. Esto es una ligera "
+"de retorno de este último retorna una llamada Python, y el nuevo contenido "
+"del búfer refleja la acción de :func:`ioctl`. Esto es una ligera "
 "simplificación, porque si el búfer proporcionado tiene menos de 1024 bytes "
 "de longitud, primero se copia en un búfer estático de 1024 bytes de longitud "
 "que luego se pasa a :func:`ioctl` y se copia de nuevo en el búfer "
 "proporcionado."
 
-#: ../Doc/library/fcntl.rst:115
+#: ../Doc/library/fcntl.rst:121
 msgid "If the :c:func:`ioctl` fails, an :exc:`OSError` exception is raised."
-msgstr "Si :c:func:`ioctl` falla, se lanza la excepción :exc:`OSError`."
+msgstr "Si :c:func:`ioctl` falla, se lanza una excepción :exc:`OSError`."
 
-#: ../Doc/library/fcntl.rst:117
+#: ../Doc/library/fcntl.rst:123
 msgid "An example::"
 msgstr "Un ejemplo:"
 
-#: ../Doc/library/fcntl.rst:139
+#: ../Doc/library/fcntl.rst:145
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``fcntl.ioctl`` with arguments "
 "``fd``, ``request``, ``arg``."
 msgstr ""
-"Lanza un evento :ref:`auditing event <auditing>` ``fcntl.ioctl`` con "
+"Lanza un :ref:`evento de auditoria <auditing>` ``fcntl.ioctl`` con "
 "argumentos ``fd``, ``request``, ``arg``."
 
-#: ../Doc/library/fcntl.rst:135
+#: ../Doc/library/fcntl.rst:141
 msgid ""
 "Perform the lock operation *operation* on file descriptor *fd* (file objects "
 "providing a :meth:`~io.IOBase.fileno` method are accepted as well). See the "
@@ -272,24 +284,24 @@ msgid ""
 "function is emulated using :c:func:`fcntl`.)"
 msgstr ""
 "Realiza la operación de bloqueo *operation* sobre el descriptor de fichero "
-"*fd* (los objetos de fichero que proporcionan un método :meth:`~io.IOBase."
-"fileno` también son aceptados). Ver el manual de Unix :manpage:`flock(2)` "
-"para más detalles. (En algunos sistemas, esta función es emulada usando :c:"
-"func:`fcntl`.)"
+"*fd* (también se aceptan objetos de fichero que proporcionen un método :meth:"
+"`~io.IOBase.fileno`). Ver el manual de Unix :manpage:`flock(2)` para más "
+"detalles. (En algunos sistemas, esta función es emulada usando :c:func:"
+"`fcntl`.)"
 
-#: ../Doc/library/fcntl.rst:140
+#: ../Doc/library/fcntl.rst:146
 msgid "If the :c:func:`flock` fails, an :exc:`OSError` exception is raised."
 msgstr "Si :c:func:`flock` falla, una excepción :exc:`OSError` se lanza."
 
-#: ../Doc/library/fcntl.rst:151
+#: ../Doc/library/fcntl.rst:157
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``fcntl.flock`` with arguments "
 "``fd``, ``operation``."
 msgstr ""
-"Lanza un :ref:`auditing event <auditing>` ``fcntl.flock`` con argumentos "
-"``fd``, ``operation``."
+"Lanza un :ref:`evento de auditoria <auditing>` ``fcntl.flock`` con "
+"argumentos ``fd``, ``operation``."
 
-#: ../Doc/library/fcntl.rst:147
+#: ../Doc/library/fcntl.rst:153
 msgid ""
 "This is essentially a wrapper around the :func:`~fcntl.fcntl` locking calls. "
 "*fd* is the file descriptor (file objects providing a :meth:`~io.IOBase."
@@ -297,24 +309,23 @@ msgid ""
 "*cmd* is one of the following values:"
 msgstr ""
 "Esto es esencialmente un \"wrapper\" de las llamadas de bloqueo :func:"
-"`~fcntl.fcntl` . * fd * es el descriptor de fichero (los objetos de fichero "
-"que proporcionan un método :meth:`~io.IOBase.fileno` también se aceptan) del "
-"archivo para bloquear o desbloquear, y *cmd* es uno de los siguientes "
-"valores:"
+"`~fcntl.fcntl`. *fd* es el descriptor de fichero (también se aceptan objetos "
+"de fichero que proporcionen un método :meth:`~io.IOBase.fileno`) del archivo "
+"para bloquear o desbloquear, y *cmd* es uno de los siguientes valores:"
 
-#: ../Doc/library/fcntl.rst:152
+#: ../Doc/library/fcntl.rst:158
 msgid ":const:`LOCK_UN` -- unlock"
 msgstr ":const:`LOCK_UN` -- desbloquear"
 
-#: ../Doc/library/fcntl.rst:153
+#: ../Doc/library/fcntl.rst:159
 msgid ":const:`LOCK_SH` -- acquire a shared lock"
 msgstr ":const:`LOCK_SH` -- adquirir un bloqueo compartido"
 
-#: ../Doc/library/fcntl.rst:154
+#: ../Doc/library/fcntl.rst:160
 msgid ":const:`LOCK_EX` -- acquire an exclusive lock"
 msgstr ":const:`LOCK_EX` -- adquirir un bloqueo exclusivo"
 
-#: ../Doc/library/fcntl.rst:156
+#: ../Doc/library/fcntl.rst:162
 msgid ""
 "When *cmd* is :const:`LOCK_SH` or :const:`LOCK_EX`, it can also be bitwise "
 "ORed with :const:`LOCK_NB` to avoid blocking on lock acquisition. If :const:"
@@ -326,39 +337,38 @@ msgid ""
 "for writing."
 msgstr ""
 "Cuando *cmd* es :const:`LOCK_SH` o :const:`LOCK_EX`, también se puede usar "
-"OR bit a bit con :const:`LOCK_NB` para evitar el bloqueo en la adquisición "
-"de bloqueos. Si se usa :const:`LOCK_NB` y no se puede adquirir el bloqueo, "
-"se lanzará un :const:`LOCK_NB` y la excepción tendrá un atributo *errno* "
-"establecido a :const:`EACCES` o :const:`EAGAIN` (según el sistema operativo; "
-"para la portabilidad, compruebe ambos valores). En al menos algunos "
-"sistemas, :const:`LOCK_EX` solo se puede usar si el descriptor de fichero se "
-"refiere a un archivo abierto para escritura."
+"operadores OR bit a bit con :const:`LOCK_NB` para evitar el bloqueo en la "
+"adquisición de bloqueos. Si se usa :const:`LOCK_NB`, el bloqueo no puede ser "
+"adquirido, se lanzará la excepción :exc:`OSError` y la excepción tendrá un "
+"atributo *errno* establecido a :const:`EACCES` o :const:`EAGAIN` "
+"(dependiendo del sistema operativo; por portabilidad, compruebe ambos "
+"valores). En al menos algunos sistemas, :const:`LOCK_EX` solo se puede usar "
+"si el descriptor de fichero se refiere a un archivo abierto para escritura."
 
-#: ../Doc/library/fcntl.rst:165
+#: ../Doc/library/fcntl.rst:171
 msgid ""
 "*len* is the number of bytes to lock, *start* is the byte offset at which "
 "the lock starts, relative to *whence*, and *whence* is as with :func:`io."
 "IOBase.seek`, specifically:"
 msgstr ""
-"*len* es el número de bytes a bloquear, *start* es el byte de \"offset\" en "
-"el cual comienza el bloqueo, relativo a *whence*, y *whence* es como con :"
-"func:`io.IOBase.seek`, específicamente:"
+"*len* es el número de bytes a bloquear, *start* es el desplazamiento de "
+"bytes en el que comienza el bloqueo, relativo a *whence*, y *whence* es como "
+"con :func:`io.IOBase.seek`, específicamente:"
 
-#: ../Doc/library/fcntl.rst:169
-msgid ":const:`0` -- relative to the start of the file (:data:`os.SEEK_SET`)"
-msgstr ":const:`0` -- relativo al comienzo del archivo (:data:`os.SEEK_SET`)"
+#: ../Doc/library/fcntl.rst:175
+msgid "``0`` -- relative to the start of the file (:const:`os.SEEK_SET`)"
+msgstr "``0`` -- relativo al inicio del archivo (:const:`os.SEEK_SET`)"
 
-#: ../Doc/library/fcntl.rst:170
-msgid ""
-":const:`1` -- relative to the current buffer position (:data:`os.SEEK_CUR`)"
+#: ../Doc/library/fcntl.rst:176
+msgid "``1`` -- relative to the current buffer position (:const:`os.SEEK_CUR`)"
 msgstr ""
-":const:`1` -- relativa a la posición actual del búfer (:data:`os.SEEK_CUR`)"
+"``1`` -- relativo a la posición actual del buffer (:const:`os.SEEK_CUR`)"
 
-#: ../Doc/library/fcntl.rst:171
-msgid ":const:`2` -- relative to the end of the file (:data:`os.SEEK_END`)"
-msgstr ":const:`2` -- relativo al final del archivo (:data:`os.SEEK_END`)"
+#: ../Doc/library/fcntl.rst:177
+msgid "``2`` -- relative to the end of the file (:const:`os.SEEK_END`)"
+msgstr "``2`` -- relativo al final del archivo (:const:`os.SEEK_END`)"
 
-#: ../Doc/library/fcntl.rst:173
+#: ../Doc/library/fcntl.rst:179
 msgid ""
 "The default for *start* is 0, which means to start at the beginning of the "
 "file. The default for *len* is 0 which means to lock to the end of the "
@@ -368,41 +378,53 @@ msgstr ""
 "del archivo. El valor por defecto para *len* es 0 lo que significa bloquear "
 "hasta el final del archivo. El valor por defecto para *whence* también es 0."
 
-#: ../Doc/library/fcntl.rst:186
+#: ../Doc/library/fcntl.rst:192
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``fcntl.lockf`` with arguments "
 "``fd``, ``cmd``, ``len``, ``start``, ``whence``."
 msgstr ""
-"Lanza un :ref:`auditing event <auditing>` ``fcntl.lockf`` con argumentos "
-"``fd``, ``cmd``, ``len``, ``start``, ``whence``."
+"Lanza un :ref:`evento de auditoria <auditing>` ``fcntl.lockf`` con "
+"argumentos ``fd``, ``cmd``, ``len``, ``start``, ``whence``."
 
-#: ../Doc/library/fcntl.rst:179
+#: ../Doc/library/fcntl.rst:185
 msgid "Examples (all on a SVR4 compliant system)::"
 msgstr "Ejemplos (todos en un sistema compatible con SVR4)::"
 
-#: ../Doc/library/fcntl.rst:189
+#: ../Doc/library/fcntl.rst:195
 msgid ""
 "Note that in the first example the return value variable *rv* will hold an "
 "integer value; in the second example it will hold a :class:`bytes` object.  "
 "The structure lay-out for the *lockdata* variable is system dependent --- "
 "therefore using the :func:`flock` call may be better."
 msgstr ""
-"Tenga en cuenta que en el primer ejemplo, la variable de valor de retorno "
+"Tenga en cuenta que en el primer ejemplo, el valor de la variable retornada "
 "*rv* contendrá un valor entero; en el segundo ejemplo contendrá un objeto :"
-"class:`bytes`. El diseño de la estructura para la variable *lockdata* "
-"depende del sistema --- por lo tanto, usar la llamada :func:`flock` puede "
-"ser mejor."
+"class:`bytes`. La estructura para la variable *lockdata* depende del sistema "
+"--- por lo tanto, usar la llamada :func:`flock` puede ser mejor."
 
-#: ../Doc/library/fcntl.rst:200
+#: ../Doc/library/fcntl.rst:206
 msgid "Module :mod:`os`"
 msgstr "Módulo  :mod:`os`"
 
-#: ../Doc/library/fcntl.rst:198
+#: ../Doc/library/fcntl.rst:204
 msgid ""
-"If the locking flags :data:`~os.O_SHLOCK` and :data:`~os.O_EXLOCK` are "
+"If the locking flags :const:`~os.O_SHLOCK` and :const:`~os.O_EXLOCK` are "
 "present in the :mod:`os` module (on BSD only), the :func:`os.open` function "
 "provides an alternative to the :func:`lockf` and :func:`flock` functions."
 msgstr ""
-"Si los flags de bloqueo :data:`~os.O_SHLOCK` y :data:`~os.O_EXLOCK` están "
-"presentes en el módulo :mod:`os` (sólo en BSD), la función :func:`os.open` "
-"proporciona una alternativa a las funciones :func:`lockf` y :func:`flock`."
+"Si los indicadores de bloqueo :const:`~os.O_SHLOCK` y :const:`~os.O_EXLOCK` "
+"están presentes en el módulo :mod:`os` (sólo en BSD), la función :func:`os."
+"open` proporciona una alternativa a las funciones :func:`lockf` y :func:"
+"`flock`."
+
+#: ../Doc/library/fcntl.rst:10
+msgid "UNIX"
+msgstr "UNIX"
+
+#: ../Doc/library/fcntl.rst:10
+msgid "file control"
+msgstr "file control"
+
+#: ../Doc/library/fcntl.rst:10
+msgid "I/O control"
+msgstr "I/O control"

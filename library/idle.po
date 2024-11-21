@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-25 19:47+0200\n"
-"PO-Revision-Date: 2022-10-27 17:00-0500\n"
+"POT-Creation-Date: 2023-10-12 19:43+0200\n"
+"PO-Revision-Date: 2024-01-28 22:51-0300\n"
 "Last-Translator: José Luis Salgado Banda <josephLSalgado@outlook.com>\n"
 "Language-Team: python-doc-es\n"
 "Language: es\n"
@@ -19,10 +19,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.10.3\n"
-"X-Generator: Poedit 3.2\n"
+"Generated-By: Babel 2.13.0\n"
+"X-Generator: Poedit 3.4.2\n"
 
-#: ../Doc/library/idle.rst:4
+#: ../Doc/library/idle.rst:4 ../Doc/library/idle.rst:10
 msgid "IDLE"
 msgstr "IDLE"
 
@@ -298,7 +298,8 @@ msgstr "Seleccionar todo"
 msgid "Select the entire contents of the current window."
 msgstr "Selecciona el contenido completo de la ventana actual."
 
-#: ../Doc/library/idle.rst:124 ../Doc/library/idle.rst:370
+#: ../Doc/library/idle.rst:124 ../Doc/library/idle.rst:355
+#: ../Doc/library/idle.rst:370
 msgid "Cut"
 msgstr "Cortar"
 
@@ -308,7 +309,8 @@ msgid ""
 msgstr ""
 "Copia la selección en el portapapeles global; después elimina la selección."
 
-#: ../Doc/library/idle.rst:127 ../Doc/library/idle.rst:373
+#: ../Doc/library/idle.rst:127 ../Doc/library/idle.rst:355
+#: ../Doc/library/idle.rst:373
 msgid "Copy"
 msgstr "Copiar"
 
@@ -316,7 +318,8 @@ msgstr "Copiar"
 msgid "Copy selection into the system-wide clipboard."
 msgstr "Copia la selección en el portapapeles global."
 
-#: ../Doc/library/idle.rst:130 ../Doc/library/idle.rst:376
+#: ../Doc/library/idle.rst:130 ../Doc/library/idle.rst:355
+#: ../Doc/library/idle.rst:376
 msgid "Paste"
 msgstr "Pegar"
 
@@ -905,7 +908,7 @@ msgstr ""
 "breakpoints para un archivo se guardan en el directorio ``.idlerc`` del "
 "usuario."
 
-#: ../Doc/library/idle.rst:384
+#: ../Doc/library/idle.rst:355 ../Doc/library/idle.rst:384
 msgid "Set Breakpoint"
 msgstr "Establecer breakpoint"
 
@@ -913,7 +916,7 @@ msgstr "Establecer breakpoint"
 msgid "Set a breakpoint on the current line."
 msgstr "Establecer un breakpoint en la línea actual."
 
-#: ../Doc/library/idle.rst:387
+#: ../Doc/library/idle.rst:355 ../Doc/library/idle.rst:387
 msgid "Clear Breakpoint"
 msgstr "Eliminar breakpoint"
 
@@ -1131,14 +1134,14 @@ msgstr "Buscar y reemplazar"
 msgid ""
 "Any selection becomes a search target.  However, only selections within a "
 "line work because searches are only performed within lines with the terminal "
-"newline removed.  If ``[x] Regular expresion`` is checked, the target is "
+"newline removed.  If ``[x] Regular expression`` is checked, the target is "
 "interpreted according to the Python re module."
 msgstr ""
 "Cualquier selección se convierte en un objetivo de búsqueda. Sin embargo, "
 "solo funcionan las selecciones dentro de una línea porque las búsquedas solo "
 "se realizan dentro de las líneas con la nueva línea de terminal eliminada. "
-"Si se marca la ``Expresión regular [x]``, el objetivo se interpreta de "
-"acuerdo al módulo re de Python."
+"Si se marca la ``[x] Expresión regular``, el objetivo se interpreta de "
+"acuerdo al módulo `re` de Python."
 
 #: ../Doc/library/idle.rst:488
 msgid "Completions"
@@ -2238,3 +2241,35 @@ msgstr ""
 "el elemento. Excepto para archivos enumerados en 'Inicio', el código de "
 "idlelib es 'privado' en el sentido de que los cambios de características "
 "pueden ser portados (consultar :pep:`434`)."
+
+#: ../Doc/library/idle.rst:10
+msgid "Python Editor"
+msgstr "Python Editor"
+
+#: ../Doc/library/idle.rst:10
+msgid "Integrated Development Environment"
+msgstr "Integrated Development Environment"
+
+#: ../Doc/library/idle.rst:70
+msgid "Module browser"
+msgstr "Module browser"
+
+#: ../Doc/library/idle.rst:70
+msgid "Path browser"
+msgstr "Path browser"
+
+#: ../Doc/library/idle.rst:212
+msgid "Run script"
+msgstr "Run script"
+
+#: ../Doc/library/idle.rst:279
+msgid "debugger"
+msgstr "debugger"
+
+#: ../Doc/library/idle.rst:279
+msgid "stack viewer"
+msgstr "stack viewer"
+
+#: ../Doc/library/idle.rst:355
+msgid "breakpoints"
+msgstr "breakpoints"
